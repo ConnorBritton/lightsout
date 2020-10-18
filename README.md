@@ -1,6 +1,6 @@
 # Simple Ligts-Out game in vanilla HTML/CSS/JavaScript
 
-GH-PAGES BRANCH
+MODIFIED
 
 - with some basic animations
 - with some basic sound
