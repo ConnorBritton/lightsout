@@ -19,8 +19,23 @@ function flip1( s, col, row) {
  * @param {number} col 
  * @param {number} row 
  */
+// function flip( s, col, row) {
+//   flip1( s, col, row);
+//   flip1( s, col+1, row);
+//   flip1( s, col-1, row);
+//   flip1( s, col, row+1);
+//   flip1( s, col, row-1);
+// }
+// flip everything around
 function flip( s, col, row) {
-  flip1( s, col, row);
+  flip1( s, col, row); // flip myself
+  
+  // diagonal flips
+  flip1( s, col+1, row+1);
+  flip1( s, col-1, row+1);
+  flip1( s, col+1, row-1);
+  flip1( s, col-1, row-1);
+
   flip1( s, col+1, row);
   flip1( s, col-1, row);
   flip1( s, col, row+1);
