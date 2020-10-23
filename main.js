@@ -67,7 +67,8 @@ function make_solvable(s, ncols, nrows) {
  */
 function prepare_dom(s) {
   const grid = document.querySelector(".grid");
-  const nCards = 9 * 9 ; // max grid size
+  // const nCards = 9 * 9 ; // max grid size
+  const nCards = 18 * 18 ; // max grid size for minesweeper
   for( let i = 0 ; i < nCards ; i ++) {
     const card = document.createElement("div");
     card.className = "card";
@@ -166,7 +167,13 @@ function main() {
   // register callbacks for buttons
   document.querySelectorAll(".menuButton").forEach((button) =>{
     [rows,cols] = button.getAttribute("data-size").split("x").map(s=>Number(s));
-    button.innerHTML = `${cols} &#x2715; ${rows}`
+    // button.innerHTML = `${cols} &#x2715; ${rows}`
+    
+    // set game difficulty 
+    if(rows === 10)
+      button.innerHTML = `Easy`
+    else if(rows === 18)
+      button.innerHTML = `Medium`
     button.addEventListener("click", button_cb.bind(null, state, cols, rows));
   });
 
@@ -187,6 +194,9 @@ function main() {
   // create enough cards for largest game and register click callbacks
   prepare_dom( state);
 
-  // simulate pressing 4x4 button to start new game
-  button_cb(state, 4, 4);
+  // // simulate pressing 4x4 button to start new game
+  // button_cb(state, 4, 4);
+
+  // simulate pressing 10x10 button to start easy mode new game
+  button_cb(state, 10, 10);
 }
